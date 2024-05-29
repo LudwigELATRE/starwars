@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Une planete{% endblock %}
+
+{% block body %}
+        <article>
+            <h2>{{ planete.name }}</h2>
+            <ul>
+                <li>Rotation_period: {{ planete.rotation_period }}</li>
+                <li>Orbital_period: {{ planete.orbital_period }}</li>
+                <li>Diameter: {{ planete.diameter }}</li>
+                <li>Climate: {{ planete.climate }}</li>
+                <li>Gravity: {{ planete.gravity }}</li>
+                <li>Terrain: {{ planete.terrain }}</li>
+            </ul>
+        </article>
+{% endblock %}

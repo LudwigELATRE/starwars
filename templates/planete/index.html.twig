@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello HomeController!{% endblock %}
+
+{% block body %}
+    {% for planete in planetes %}
+        <article>
+            <a href="{{ path('app_planete', { 'id': planete.url|replace({
+                'https://swapi.dev/api/planets/': '',
+                '/': ''
+            }) }) }}">
+                {{ planete.name }}
+            </a>
+        </article>
+    {% endfor %}
+    {% if nextUrl.previous is not null %}
+        <button>
+            <a class="contrast" href="{{ path('app_next_planetes', {'page': nextUrl.previous|replace({'https://swapi.dev/api/planets/?page=': ''}) }) }}">Precedent</a>
+        </button>
+    {% endif %}
+    {% if nextUrl.next is not null %}
+    <button>
+        <a class="contrast" href="{{ path('app_next_planetes', {'page': nextUrl.next|replace({'https://swapi.dev/api/planets/?page=': ''}) }) }}">Suivant</a>
+    </button>
+    {% endif %}
+{% endblock %}
